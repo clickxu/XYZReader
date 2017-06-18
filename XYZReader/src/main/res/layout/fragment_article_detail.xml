@@ -1,7 +1,6 @@
 <android.support.design.widget.CoordinatorLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
-	android:id="@+id/draw_insets_frame_layout"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
 
@@ -9,14 +8,12 @@
 		android:id="@+id/app_bar_layout"
 		android:layout_width="match_parent"
 		android:layout_height="192dp"
-		android:fitsSystemWindows="true"
-		android:background="?colorPrimary">
+		android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
 		<android.support.design.widget.CollapsingToolbarLayout
 			android:id="@+id/collapsing_toolbar_layout"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:fitsSystemWindows="true"
 			app:collapsedTitleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
 			app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
 			app:expandedTitleMarginStart="72dp"
@@ -30,8 +27,6 @@
 				app:layout_collapseMode="parallax"
 				android:scaleType="centerCrop"
 				/>
-
-
 			<android.support.v7.widget.Toolbar
 				android:id="@+id/app_bar"
 				android:layout_width="match_parent"
@@ -39,17 +34,15 @@
 				android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
 				app:contentInsetStart="72dp"
 				app:layout_collapseMode="pin" />
-
-
 		</android.support.design.widget.CollapsingToolbarLayout>
 	</android.support.design.widget.AppBarLayout>
 
 	<android.support.v4.widget.NestedScrollView
 		android:id="@+id/scrollview"
 		android:layout_gravity="fill_vertical"
-		app:layout_behavior="@string/appbar_scrolling_view_behavior"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent">
+		android:layout_height="match_parent"
+		app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 		<LinearLayout
 			android:orientation="vertical"
@@ -101,12 +94,12 @@
 				android:layout_marginLeft="@dimen/detail_inner_horiz_margin"
 				android:layout_marginRight="@dimen/detail_inner_horiz_margin"
 				android:paddingBottom="@dimen/detail_body_bottom_margin"
-				android:textColor="@color/ltgray"
 				android:textColorLink="@color/theme_accent"
 				android:textSize="@dimen/detail_body_text_size"
 				android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier" />
 
 		</LinearLayout>
+
 	</android.support.v4.widget.NestedScrollView>
 
 	<android.support.design.widget.FloatingActionButton
