@@ -23,4 +23,5 @@
     <color name="photo_placeholder">#ccc</color>
     <color name="text">#424242</color>
     <color name="text_title">#fff</color>
+    <color name="content_bg">#fff</color>
 </resources>
