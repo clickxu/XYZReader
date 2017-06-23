@@ -16,10 +16,11 @@
 -->
 
 <resources>
-    <color name="photo_placeholder">#ccc</color>
+    <color name="deep_orange_a400">#FF3D00</color>
+    <color name="deep_orange_a700">#DD2C00</color>
+    <color name="brown_a400">#8D6E63</color>
 
-    <color name="theme_primary">#FF3D00</color>
-    <color name="theme_primary_dark">#DD2C00</color>
-    <color name="theme_accent">#8D6E63</color>
-    <color name="text">#ff424242</color>
+    <color name="photo_placeholder">#ccc</color>
+    <color name="text">#424242</color>
+    <color name="text_title">#fff</color>
 </resources>
