@@ -66,6 +66,7 @@
 				android:id="@+id/article_byline"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
+				android:textStyle="italic"
 				android:layout_gravity="start"
 			    android:paddingBottom="@dimen/detail_subtitle_bottom_padding"
 				/>

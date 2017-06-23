@@ -17,6 +17,7 @@ import android.text.Html;
 import android.text.format.DateUtils;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -106,7 +107,6 @@ public class ArticleDetailFragment extends Fragment implements
             Bundle savedInstanceState) {
         mRootView = inflater.inflate(R.layout.fragment_article_detail, container, false);
         mToolbar = (Toolbar) mRootView.findViewById(R.id.app_bar);
-        updateAppBar();
         mPhotoView = (ImageView) mRootView.findViewById(R.id.photo);
         mRootView.findViewById(R.id.share_fab).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,21 +119,23 @@ public class ArticleDetailFragment extends Fragment implements
         });
 
         bindViews();
+        updateAppBar();
         return mRootView;
     }
 
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-        if (isVisibleToUser && mToolbar != null) {
+        if (isVisibleToUser) {
             updateAppBar();
         }
     }
 
-    private void updateAppBar() {
-        if ( mToolbar != null) {
-            getActivityCast().setSupportActionBar(mToolbar);
-            ActionBar actionBar = getActivityCast().getSupportActionBar();
+    public void updateAppBar() {
+        ArticleDetailActivity activity = getActivityCast();
+        if (activity != null && activity.getSelectedItemId() == mItemId && mToolbar != null) {
+            activity.setSupportActionBar(mToolbar);
+            ActionBar actionBar = activity.getSupportActionBar();
             if (actionBar != null) {
                 actionBar.setDisplayHomeAsUpEnabled(true);
                 actionBar.setTitle(null);
@@ -167,21 +169,17 @@ public class ArticleDetailFragment extends Fragment implements
             final String title = mCursor.getString(ArticleLoader.Query.TITLE);
             Date publishedDate = parsePublishedDate();
             if (!publishedDate.before(START_OF_EPOCH.getTime())) {
-                bylineView.setText(Html.fromHtml(
-                        DateUtils.getRelativeTimeSpanString(
-                                publishedDate.getTime(),
-                                System.currentTimeMillis(), DateUtils.HOUR_IN_MILLIS,
-                                DateUtils.FORMAT_ABBREV_ALL).toString()
-                                + " by <font color='#ffffff'>"
-                                + mCursor.getString(ArticleLoader.Query.AUTHOR)
-                                + "</font>"));
+                String subTitle =  DateUtils.getRelativeTimeSpanString(
+                        publishedDate.getTime(),
+                        System.currentTimeMillis(), DateUtils.HOUR_IN_MILLIS,
+                        DateUtils.FORMAT_ABBREV_ALL).toString() + " by "
+                        + mCursor.getString(ArticleLoader.Query.AUTHOR);
+                bylineView.setText(subTitle);
 
             } else {
                 // If date is before 1902, just show the string
-                bylineView.setText(Html.fromHtml(
-                        outputFormat.format(publishedDate) + " by <font color='#ffffff'>"
-                        + mCursor.getString(ArticleLoader.Query.AUTHOR)
-                                + "</font>"));
+                bylineView.setText(outputFormat.format(publishedDate) + " by "
+                        + mCursor.getString(ArticleLoader.Query.AUTHOR));
 
             }
             bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY).replaceAll("(\r\n|\n)", "<br />")));
@@ -252,5 +250,10 @@ public class ArticleDetailFragment extends Fragment implements
     public void onLoaderReset(Loader<Cursor> cursorLoader) {
         mCursor = null;
         bindViews();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return getActivityCast().onOptionsItemSelected(item);
     }
 }
