@@ -26,17 +26,16 @@
 	</android.support.design.widget.AppBarLayout>
 
 	<android.support.v4.widget.SwipeRefreshLayout
+		app:layout_behavior="@string/appbar_scrolling_view_behavior"
 		android:id="@+id/swipe_refresh_layout"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent">
 
 		<android.support.v7.widget.RecyclerView
 			android:transitionGroup="true"
-			app:layout_behavior="@string/appbar_scrolling_view_behavior"
 			android:id="@+id/recycler_view"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:paddingTop="?actionBarSize"
 			android:clipToPadding="false"
 			android:scrollbarStyle="outsideOverlay"/>
 	</android.support.v4.widget.SwipeRefreshLayout>
