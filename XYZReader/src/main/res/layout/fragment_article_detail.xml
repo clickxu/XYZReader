@@ -23,6 +23,7 @@
 			app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
 			<com.example.xyzreader.ui.DynamicHeightImageView
+				android:transitionName="@string/transition_photo"
 				android:id="@+id/photo"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
@@ -45,6 +46,7 @@
 	</android.support.design.widget.AppBarLayout>
 
 	<android.support.v4.widget.NestedScrollView
+		android:transitionGroup="true"
 		android:id="@+id/scrollview"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
