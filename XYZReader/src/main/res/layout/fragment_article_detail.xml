@@ -45,45 +45,7 @@
 		</android.support.design.widget.CollapsingToolbarLayout>
 	</android.support.design.widget.AppBarLayout>
 
-	<android.support.v4.widget.NestedScrollView
-		android:transitionGroup="true"
-		android:id="@+id/scrollview"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:layout_gravity="fill_vertical"
-		app:layout_behavior="@string/appbar_scrolling_view_behavior">
-		<LinearLayout
-			android:orientation="vertical"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:paddingTop="@dimen/detail_body_top_padding"
-			android:paddingStart="@dimen/detail_body_horiz_padding"
-			android:paddingEnd="@dimen/detail_body_horiz_padding"
-			android:paddingBottom="@dimen/detail_body_bottom_padding"
-			android:layout_gravity="center_horizontal"
-			android:maxWidth="@dimen/detail_card_max_width"
-			android:background="@color/content_bg">
-			<TextView
-				style="?android:attr/textAppearanceSmall"
-				android:id="@+id/article_byline"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:textStyle="italic"
-				android:layout_gravity="start"
-			    android:paddingBottom="@dimen/detail_subtitle_bottom_padding"
-				/>
-			<TextView
-				style="?android:attr/textAppearanceMedium"
-				android:id="@+id/article_body"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:textColorLink="?colorAccent"
-				android:textSize="@dimen/detail_body_text_size"
-				android:fontFamily="serif"
-				android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier"
-				/>
-		</LinearLayout>
-	</android.support.v4.widget.NestedScrollView>
+	<include layout="@layout/content_article_detail" />
 
 	<android.support.design.widget.FloatingActionButton
 		app:fabSize="normal"

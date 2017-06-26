@@ -1,6 +1,8 @@
 <resources>
-	<item name="image_radio" format="float" type="fraction">1.5</item>
 	<dimen name="activity_horizontal_margin">16dp</dimen>
+	<!-- list -->
+	<dimen name="card_horizontal_padding">16dp</dimen>
+
     <!-- detail -->
 	<item name="detail_body_line_spacing_multiplier" format="float" type="fraction">1.25</item>
     <dimen name="detail_title_text_size">24sp</dimen>

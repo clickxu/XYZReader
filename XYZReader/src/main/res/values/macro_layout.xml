@@ -4,6 +4,7 @@
     <dimen name="list_toolbar_side_margin">0dp</dimen>
 
     <!-- detail -->
+	<item name="image_radio" format="float" type="fraction">1.5</item>
 	<dimen name="detail_subtitle_bottom_padding">8dp</dimen>
 	<dimen name="detail_body_horiz_padding">16dp</dimen>
 	<dimen name="detail_body_top_padding">16dp</dimen>
