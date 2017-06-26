@@ -42,6 +42,7 @@
             android:paddingStart="@dimen/card_horizontal_padding"
             android:paddingEnd="@dimen/card_horizontal_padding"
             android:paddingBottom="16dp"
+            android:textColor="@color/text_subtitle"
             android:lines="2"
             android:ellipsize="end" />
     </LinearLayout>
